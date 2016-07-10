@@ -12,3 +12,6 @@ function ..    ; cd .. ; end
 function ...   ; cd ../.. ; end
 function ....  ; cd ../../.. ; end
 function ..... ; cd ../../../.. ; end
+
+# Git
+source {$HOME}/.config/fish/git.fish

@@ -153,7 +153,7 @@ $ vagrant ssh
 $ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 
 # Install fish plugins with `fisher`
-$ fisher mono z edc/bass pyenv
+$ fisher mono z edc/bass pyenv git vibrant
 ```
 
 ### 3. Language installation

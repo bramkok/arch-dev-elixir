@@ -109,17 +109,19 @@ Then save the file and close the editor.
 
 
 ```bash
-$ sudo pacman -Sy yaourt git xsel fish
+$ sudo pacman -Sy --noconfirm yaourt git xsel fish
 ```
 
 #### Configure `fish` shell
 
 ```bash
 # Change default shell to the `fish` shell
+# When asked for a password use "vagrant"
 $ chsh -s /usr/bin/fish
 
-# Create config file
-$ touch ~/.config/fish/config.fish
+# Exit the current ssh session and reconnect again
+$ exit
+$ vagrant ssh
 
 # Install a plugin manager for `fish`
 $ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
@@ -134,19 +136,22 @@ $ fisher mono z edc/bass pyenv
 
 ```bash
 # Install pyenv
-$ yaourt -Sa pyenv
+$ yaourt -Sa --noconfirm pyenv
 
 # Install Python 3.5.1
 $ pyenv install 3.5.1
 
 # Set Python 3.5.1 as global default
 $ pyenv global 3.5.1
+
+# Reload pyenv plugin for `fish`
+$ source ~/.config/fish/conf.d/pyenv.fish
 ```
 
 #### Install `erlang` and `elixir`
 
 ```bash
-$ yaourt -S erlang elixir
+$ yaourt -S --noconfirm erlang elixir
 ```
 
 ### 4. Install Neovim and plugins
@@ -155,7 +160,7 @@ $ yaourt -S erlang elixir
 
 ```bash
 # Install Neovim
-$ yaourt -S neovim
+$ yaourt -S --noconfirm neovim
 
 # Install Python 3 client for neovim
 $ pip3 install --user --upgrade neovim

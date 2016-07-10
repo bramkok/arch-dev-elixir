@@ -21,13 +21,39 @@
     - [Configure `fish` shell](#configure-fish-shell)
   - [3. Language installation](#3-language-installation)
     - [Install `pyenv` and `python`](#install-pyenv-and-python)
-    - [Install `erlang` and `elixir`](#install-erlang-and-elixir)
+    - [Install `nvm` and `node`](#install-nvm-and-node)
   - [4. Install Neovim and plugins](#4-install-neovim-and-plugins)
     - [Install `nvim` and `client-neovim`](#install-nvim-and-client-neovim)
 - [Arch Linux](#arch-linux)
+  - [Commands](#commands)
+    - [Package management](#package-management)
+      - [Installing packages](#installing-packages)
+      - [Updating packages](#updating-packages)
+      - [Upgrading packages](#upgrading-packages)
   - [Original base box](#original-base-box)
+    - [GitHub](#github)
+    - [Atlas](#atlas)
+    - [Release information](#release-information)
   - [Modified base box](#modified-base-box)
-- [Vim and Neovim](#vim-and-neovim)
+- [Neovim](#neovim)
+- [Elixir Resources](#elixir-resources)
+  - [Ecosystem](#ecosystem)
+    - [Package management](#package-management-1)
+    - [Application configuration](#application-configuration)
+    - [Database](#database)
+    - [Web frameworks](#web-frameworks)
+      - [Phoenix Framework](#phoenix-framework)
+      - [Other](#other)
+    - [Testing](#testing)
+    - [Code analysis and styleguides](#code-analysis-and-styleguides)
+    - [Statistics and Metrics](#statistics-and-metrics)
+    - [Data generation](#data-generation)
+  - [Articles and blogs](#articles-and-blogs)
+  - [Example projects](#example-projects)
+  - [Misc](#misc)
+    - [Game of Life](#game-of-life)
+    - [Dev envs](#dev-envs)
+  - [Neovim plugins](#neovim-plugins)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -148,6 +174,27 @@ $ pyenv global 3.5.1
 $ source ~/.config/fish/conf.d/pyenv.fish
 ```
 
+#### Install `nvm` and `node`
+
+```bash
+# Install nvm
+$ yaourt -Sa --noconfirm nvm
+
+# Install fish plugin
+$ fisher install nvm
+
+# Create directory
+$ mkdir ~/.nvm
+
+# Symlink nvm script
+$ ln -s /usr/share/nvm/init-nvm.sh ~/.nvm/nvm.sh
+
+# Install Node.js 6.3.0
+$ nvm install v6.3.0
+
+# Set Node.js 6.3.0 as global default
+$ nvm nvm alias default v6.3.0
+
 #### Install `erlang` and `elixir`
 
 ```bash
@@ -168,13 +215,96 @@ $ pip3 install --user --upgrade neovim
 
 ## Arch Linux
 
+### Commands
+
+#### Package management
+
+##### Installing packages
+
+Quick search + install.
+
+```bash
+$ yaourt [keywords]
+```
+
+Install package, Compile it from AUR if needed.
+
+```bash
+$ yaourt -S [packages]
+```
+
+Search on repos and on AUR (with notice for already installed packages).
+
+```bash
+$ yaourt -Ss [keywords]
+```
+
+Install packages by compiling from source (abs).
+
+```bash
+$ yaourt -Sb [packages]
+```
+
+Prompt for packages of the selected repos (emphasize those already installed).
+
+```bash
+$ yaourt -Sl [repos]
+```
+
+Colorized ouput of installed packages and the repos where they come from.
+
+```bash
+$ yaourt -Qs [keywords]
+```
+
+Shows the package which provides the program or the file.
+
+```bash
+$ yaourt -Qo [progname] or [filename]
+```
+
+##### Updating packages
+
+Complete update of all Community, Core and Extra repositories.
+
+```bash
+$ yaourt -Sy
+```
+
+Complete update of all repositories + AUR repositories.
+
+```bash
+$ yaourt -Sya
+```
+
+##### Upgrading packages
+
+Complete update and upgrade of all Community, Core and Extra repositories.
+
+```bash
+$ yaourt -Syu
+```
+
+Complete update and upgrade of all repositories + AUR repositories.
+
+```bash
+$ yaourt -Syau
+```
+
 ### Original base box
 
 The Arch Linux x86_64 Vagrant base box `bugyt/archlinux` has been used as the
 starting point for this environment.
 
-* GitHub [`bugyt/archlinux`](https://github.com/bugyt/archlinux)
-* Atlas [`bugyt/archlinux`](https://vagrantcloud.com/bugyt/boxes/archlinux)
+#### GitHub
+
+[`bugyt/archlinux`](https://github.com/bugyt/archlinux)
+
+#### Atlas
+
+[`bugyt/archlinux`](https://vagrantcloud.com/bugyt/boxes/archlinux)
+
+#### Release information
 
 * Current ArchLinux Release: 2016.01.01
 * Included Kernel: 4.3.3
@@ -204,7 +334,100 @@ See packages and modifications in those steps.
 * [3. Language installation](#3-language-installation)
 * [4. Install Neovim and plugins](#4-install-neovim-and-plugins)
 
-## Vim and Neovim
+## Neovim
+
+## Elixir Resources
+
+### Ecosystem
+
+#### Package management
+
+- [Elixir Release Manager](https://github.com/bitwalker/exrm)
+- [Elixir Make](https://github.com/elixir-lang/elixir_make)
+
+#### Application configuration
+
+- [Conform](https://github.com/bitwalker/conform)
+
+#### Database
+
+A database wrapper and language integrated query for Elixir
+
+- [Ecto](https://github.com/elixir-ecto/ecto)
+
+#### Web frameworks
+
+##### Phoenix Framework
+
+- [Phoenix Framework](http://www.phoenixframework.org)
+  - [Phoenix Framework User Management](https://github.com/trenpixster/addict)
+
+##### Other
+
+- [Sugar Framework](https://sugar-framework.github.io)
+- [trot Micro Framework](https://github.com/hexedpackets/trot)
+
+#### Testing
+
+- [Hound](https://hexdocs.pm/hound/readme.html)
+- [ex_machina](https://hexdocs.pm/ex_machina) Create test data for Elixir applications
+- [Wallaby](https://hexdocs.pm/wallaby) Concurrent browser tests with elixir
+- [Blitzy](https://github.com/benjamintanweihao/blitzy)
+
+#### Code analysis and styleguides
+
+A community driven style guide for Elixir.
+
+- [The Elixir Style Guide](https://github.com/niftyn8/elixir_style_guide)
+
+A static code analysis tool for the Elixir language with a focus on code
+consistency and teaching.
+
+- [Credo](https://github.com/rrrene/credo)
+- [Credo's Elixir Style Guide](https://github.com/rrrene/elixir-style-guide)
+
+#### Statistics and Metrics
+
+Statistics and Metrics library for Elixir.
+
+- [Beaker](https://github.com/hahuang65/beaker)
+
+#### Data generation
+
+- [Faker](https://github.com/igas/faker)
+- [Blacksmith](https://github.com/batate/blacksmith)
+
+### Articles and blogs
+
+- [Elixir Diary](https://code-shoily.github.io/my-elixir-diary)
+- http://nithinbekal.com/posts/elixir-publish-package
+- https://github.com/kblake/functional-programming
+- http://learningelixir.joekain.com/posts/
+
+### Example projects
+
+- [xElixir](https://github.com/exercism/xelixir)
+- [Elixir in action](https://github.com/sasa1977/elixir-in-action)
+- http://elixir-examples.github.io
+
+### Misc
+
+#### Game of Life
+
+Conway's game of life in Elixir.
+
+- [Life](https://github.com/joekain/elixir-life)
+
+#### Dev envs
+
+- https://atlas.hashicorp.com/pgrunwald/boxes/elixir-phoenix-ubuntu-trusty64
+
+### Neovim plugins
+
+- https://github.com/elixir-lang/vim-elixir
+- https://github.com/awetzel/elixir.nvim
+- https://github.com/jadercorrea/elixir_generator.vim
+- https://github.com/avdgaag/vim-phoenix
 
 ## License
 

@@ -130,11 +130,10 @@ Server = http://repo.archlinux.fr/$arch
 
 Then save the file and close the editor.
 
-#### Update and install `yaourt`, `git`, `xsel`, `postgresql` and `fish`
-
+#### Update and install `yaourt`, `git`, `postgresql`, `fish` et cetera
 
 ```bash
-$ sudo pacman -Sy --noconfirm yaourt git xsel fish postgresql
+$ sudo pacman -Sy --noconfirm yaourt git xsel fish postgresql inotify-tools
 ```
 
 #### Configure `fish` shell

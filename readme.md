@@ -1,5 +1,4 @@
 # arch-dev-elixir
-
 > Arch Linux Elixir development environment study
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -52,7 +51,7 @@
   - [Example projects](#example-projects)
   - [Misc](#misc)
     - [Game of Life](#game-of-life)
-    - [Dev envs](#dev-envs)
+    - [Dev environments](#dev-environments)
   - [Neovim plugins](#neovim-plugins)
 - [License](#license)
 
@@ -194,6 +193,7 @@ $ nvm install v6.3.0
 
 # Set Node.js 6.3.0 as global default
 $ nvm nvm alias default v6.3.0
+```
 
 #### Install `erlang` and `elixir`
 
@@ -418,7 +418,7 @@ Conway's game of life in Elixir.
 
 - [Life](https://github.com/joekain/elixir-life)
 
-#### Dev envs
+#### Dev environments
 
 - https://atlas.hashicorp.com/pgrunwald/boxes/elixir-phoenix-ubuntu-trusty64
 

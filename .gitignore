@@ -1,1 +1,4 @@
 .vagrant/
+config/nvim/.init.vim-rplugin~
+config/nvim/.netrwhist
+config/nvim/autoload

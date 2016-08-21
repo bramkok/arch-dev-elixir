@@ -16,11 +16,14 @@
     - [Connect via SSH](#connect-via-ssh)
   - [2. Install packages](#2-install-packages)
     - [Add package repository](#add-package-repository)
-    - [Update and install `yaourt`, `git`, `xsel` and `fish`](#update-and-install-yaourt-git-xsel-and-fish)
+    - [Update and install `yaourt`, `git`, `postgresql`, `fish` et cetera]
+(#update-and-install-yaourt-git-postgresql-fish-et-cetera)
     - [Configure `fish` shell](#configure-fish-shell)
+    - [Configure postgresql](#configure-postgresql)
   - [3. Language installation](#3-language-installation)
     - [Install `pyenv` and `python`](#install-pyenv-and-python)
     - [Install `nvm` and `node`](#install-nvm-and-node)
+    - [Install `erlang` and `elixir`](#install-erlang-and-elixir)
   - [4. Install Neovim and plugins](#4-install-neovim-and-plugins)
     - [Install `nvim` and `client-neovim`](#install-nvim-and-client-neovim)
 - [Arch Linux](#arch-linux)
@@ -153,6 +156,10 @@ $ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 # Install fish plugins with `fisher`
 $ fisher mono z edc/bass pyenv git vibrant
 ```
+
+#### Configure postgresql
+
+[postgresql setup](http://www.netarky.com/programming/arch_linux/Arch_Linux_PostgreSQL_database_setup.html)
 
 ### 3. Language installation
 
@@ -405,6 +412,7 @@ Statistics and Metrics library for Elixir.
 
 ### Example projects
 
+- [phoenix-react-redux-template](https://github.com/bigardone/phoenix-react-redux-template)
 - [xElixir](https://github.com/exercism/xelixir)
 - [Elixir in action](https://github.com/sasa1977/elixir-in-action)
 - http://elixir-examples.github.io

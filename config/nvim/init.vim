@@ -7,7 +7,7 @@ call plug#begin('~/.config/nvim/autoload')
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+"Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 " Elixir
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
@@ -21,12 +21,19 @@ Plug 'airblade/vim-gitgutter'
 " Commenting
 Plug 'tpope/vim-commentary'
 
+" Multiple cursors
+Plug 'terryma/vim-multiple-cursors'
+
+" Fuzzy
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Shougo/unite.vim'
+
 " Add plugins to &runtimepath
 call plug#end()
 
 " Color
 " ---------------------------------------------------------------
-"
+
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:gruvbox_invert_selection=0
 silent! colorscheme gruvbox
@@ -38,7 +45,7 @@ highlight Conceal ctermfg=166 guifg=#d65d0e
 
 " see https://github.com/neovim/neovim/issues/4946
 " 124 = gruvbox red
-highlight SpecialKey ctermfg=124 guifg=#cc241d     
+highlight SpecialKey ctermfg=124 guifg=#cc241d
 
 " Use deoplete
 let g:deoplete#enable_at_startup = 1
@@ -52,11 +59,11 @@ highlight GitGutterChange guibg=brightblack guifg=orange
 highlight GitGutterDelete guibg=brightblack guifg=red
 
 " Vertical Split
-hi VertSplit guifg=#363636 guibg=#363636 
+hi VertSplit guifg=#363636 guibg=#363636
 
 "  UI
 " ---------------------------------------------------------------
-"
+
 set laststatus=0	   " Hide the title on the status line
 set ruler                  " show the cursor position all the time
 set cursorline		   " Show cursorline
@@ -86,13 +93,13 @@ autocmd InsertEnter,WinLeave * set nocursorline
 
 " General
 " --------------------------------------------------------------
-"
+
 
 " Mappings
 " --------------------------------------------------------------
-"
+
 map <space> <Leader>
-map <F12> :so $MYVIMRC<CR> 
+map <F12> :so $MYVIMRC<CR>
 set pastetoggle=<leader>p
 
 " Blank lines without insert
@@ -102,3 +109,17 @@ nnoremap <leader>O O<Esc>
 " Leader mapping
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+
+" Unite.vim
+nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <space>/ :Unite grep:.<cr>
+let g:unite_source_history_yank_enable = 1
+nnoremap <space>y :Unite history/yank<cr>
+nnoremap <space>s :Unite -quick-match buffer<cr>
+
+" vim-multiple-cursors
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-N>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
